@@ -6,7 +6,7 @@
 import type { UserAccount, Gig, Project } from '../src/types.js';
 
 export function isUserPublic(u: any): boolean {
-  return u.status === 'active' && u.role !== 'admin' && u.role !== 'super_admin' && !u.isFlagged;
+  return u.status === 'active' && !['admin', 'super_admin', 'support', 'internal'].includes(u.role) && !u.isFlagged;
 }
 
 export function sanitizePublicUser(user: any) {

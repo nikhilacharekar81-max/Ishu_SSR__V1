@@ -4505,9 +4505,9 @@ app.post('/api/reviews', requireAuth, (req, res) => {
     targetUserId: resolvedTargetUserId,
     rating: numRating,
     comment: comment.trim(),
-    orderTitle: orderTitle || order.title || 'Workstream Milestone Deliverable',
-    gigId: req.body.gigId || order.gigId,
-    projectId: req.body.projectId || order.projectId,
+    orderTitle: order.title || 'Workstream Milestone Deliverable',
+    gigId: order.gigId,
+    projectId: order.projectId,
     isCancelledOrder: order.status === 'cancelled',
     createdAt: new Date().toISOString().split('T')[0]
   };
@@ -4666,6 +4666,9 @@ app.get('/api/audit-logs', requireRole(['admin', 'super_admin']), (req, res) => 
 
 // User Email Notifications API
 app.get('/api/user-emails/:userId', requireAuth, (req, res) => {
+  const caller = (req as any).authenticatedUser;
+  const isAdminOrStaff = caller.role === 'admin' || caller.role === 'super_admin' || caller.role === 'support';
+  if (caller.id !== req.params.userId && !isAdminOrStaff) return res.status(403).json({ error: 'Forbidden' });
   const userList = userEmails.filter(e => e.userId === req.params.userId);
   res.json(userList);
 });
@@ -5198,6 +5201,7 @@ app.post('/api/gigs', requireAuth, (req, res) => {
   // Enforce Gig Pricing Limits from Site Settings
   const activeSettings = siteSettings.getSettings();
   const gigPrice = Number(req.body.price);
+  if (!Number.isFinite(gigPrice)) return res.status(400).json({ error: 'Gig price must be a valid number.' });
   const minGigPrice = activeSettings.marketplace.minimumGigPrice ?? 10;
   const maxGigPrice = activeSettings.marketplace.maximumGigPrice ?? 10000;
   if (gigPrice < minGigPrice) {
@@ -5473,7 +5477,8 @@ app.delete('/api/admin/gigs/:id', (req, res) => {
   res.json({ success: true, id: deleted.id });
 });
 
-app.delete('/api/gigs/:id', (req, res) => {
+app.delete('/api/gigs/:id', requireAuth, (req, res) => {
+  const caller = (req as any).authenticatedUser;
   const index = gigs.findIndex(gig => gig.id === req.params.id);
   if (index === -1) return res.status(404).json({ error: 'Gig/Service not found' });
 
@@ -5493,15 +5498,22 @@ app.delete('/api/gigs/:id', (req, res) => {
   res.json({ success: true, id: deleted.id });
 });
 
-app.patch('/api/gigs/:id', (req, res) => {
+app.patch('/api/gigs/:id', requireAuth, (req, res) => {
+  const caller = (req as any).authenticatedUser;
   const g = gigs.find(gig => gig.id === req.params.id);
   if (!g) return res.status(404).json({ error: 'Gig/Service not found' });
+  const isAdmin = caller.role === 'admin' || caller.role === 'super_admin';
+  if (!isAdmin && g.freelancerId !== caller.id) return res.status(403).json({ error: 'Forbidden' });
 
   if (req.body.title !== undefined) g.title = req.body.title;
   if (req.body.category !== undefined) g.category = req.body.category;
   if (req.body.subcategory !== undefined) g.subcategory = req.body.subcategory;
   if (req.body.description !== undefined) g.description = req.body.description;
-  if (req.body.price !== undefined) g.price = Number(req.body.price);
+  if (req.body.price !== undefined) {
+    const newPrice = Number(req.body.price);
+    if (!Number.isFinite(newPrice)) return res.status(400).json({ error: 'Gig price must be a valid number.' });
+    g.price = newPrice;
+  }
   if (req.body.deliveryDays !== undefined) g.deliveryDays = Number(req.body.deliveryDays);
   if (req.body.status !== undefined) g.status = req.body.status;
   if (req.body.featured !== undefined) g.featured = Boolean(req.body.featured);
@@ -5521,9 +5533,12 @@ app.patch('/api/gigs/:id', (req, res) => {
   res.json(g);
 });
 
-app.patch('/api/gigs/:id/feature', (req, res) => {
+app.patch('/api/gigs/:id/feature', requireAuth, (req, res) => {
+  const caller = (req as any).authenticatedUser;
   const g = gigs.find(gig => gig.id === req.params.id);
   if (!g) return res.status(404).json({ error: 'Gig/Service not found' });
+  const isAdmin = caller.role === 'admin' || caller.role === 'super_admin';
+  if (!isAdmin && g.freelancerId !== caller.id) return res.status(403).json({ error: 'Forbidden' });
 
   g.featured = !g.featured;
 
@@ -6127,7 +6142,13 @@ app.patch('/api/admin/users/:id', (req, res) => {
   
   if (req.body.name !== undefined) u.name = escapeHtml(String(req.body.name));
   if (req.body.email !== undefined) u.email = escapeHtml(String(req.body.email));
-  if (req.body.role !== undefined) u.role = req.body.role;
+  if (req.body.role !== undefined) {
+    const caller = (req as any).authenticatedUser;
+    if (req.body.role === 'super_admin' && caller?.role !== 'super_admin') {
+      return res.status(403).json({ error: 'Forbidden: Only super_admin can set super_admin role.' });
+    }
+    u.role = req.body.role;
+  }
   if (req.body.title !== undefined) u.title = escapeHtml(String(req.body.title));
   if (req.body.bio !== undefined) u.bio = escapeHtml(String(req.body.bio));
   if (req.body.skills !== undefined) u.skills = Array.isArray(req.body.skills) ? req.body.skills : req.body.skills.split(',').map((s: string) => s.trim()).filter(Boolean);
@@ -6146,7 +6167,7 @@ app.patch('/api/admin/users/:id', (req, res) => {
     timestamp: new Date().toLocaleString()
   });
 
-  res.json(u);
+  res.json(safeUser(u));
 });
 
 app.patch('/api/admin/users/:id/status', (req, res) => {

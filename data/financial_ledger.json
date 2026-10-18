@@ -1,6 +1,620 @@
 {
   "journals": [
     {
+      "id": "JRN-f6da18a9-6d16-429f-81f4-41198d007e35",
+      "reference": "REV-JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Reversal of Journal #JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b: Accidental duplicate goodwill grant",
+      "eventType": "REVERSAL",
+      "idempotencyKey": "IDEMP-REV-JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+      "entries": [
+        {
+          "id": "ENT-f6da18a9-6d16-429f-81f4-41198d007e35-1",
+          "journalId": "JRN-f6da18a9-6d16-429f-81f4-41198d007e35",
+          "accountCode": "5020",
+          "accountName": "Administrative & Goodwill Adjustments",
+          "debit": 0,
+          "credit": 50,
+          "currency": "USD",
+          "description": "Reversal of [Adjustment Expense: GOODWILL - Platform promotion goodwill credit]: Accidental duplicate goodwill grant"
+        },
+        {
+          "id": "ENT-f6da18a9-6d16-429f-81f4-41198d007e35-2",
+          "journalId": "JRN-f6da18a9-6d16-429f-81f4-41198d007e35",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 50,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Reversal of [Credit Adjustment to Marcus Vance (freelancer): Platform promotion goodwill credit]: Accidental duplicate goodwill grant",
+          "userId": "user_3"
+        }
+      ],
+      "totalDebit": 50,
+      "totalCredit": 50,
+      "status": "posted",
+      "actor": "Chief Finance",
+      "notes": "Accidental duplicate goodwill grant"
+    },
+    {
+      "id": "JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+      "reference": "ADJ-WAL-USER_3-e0797c14",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Administrative CREDIT_USER: Platform promotion goodwill credit (goodwill)",
+      "eventType": "ADMIN_ADJUSTMENT_CREDIT",
+      "idempotencyKey": "IDEMP-ADJ-ba1cf865-2643-4a21-b30b-e80904117235",
+      "entries": [
+        {
+          "id": "ENT-73bd4ddf-087b-45d0-ad5a-13f504dab87b-1",
+          "journalId": "JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+          "accountCode": "5020",
+          "accountName": "Administrative & Goodwill Adjustments",
+          "debit": 50,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Adjustment Expense: GOODWILL - Platform promotion goodwill credit"
+        },
+        {
+          "id": "ENT-73bd4ddf-087b-45d0-ad5a-13f504dab87b-2",
+          "journalId": "JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 50,
+          "currency": "USD",
+          "description": "Credit Adjustment to Marcus Vance (freelancer): Platform promotion goodwill credit",
+          "userId": "user_3"
+        }
+      ],
+      "totalDebit": 50,
+      "totalCredit": 50,
+      "status": "posted",
+      "actor": "Super Admin",
+      "notes": "Category: goodwill | Reference: N/A | Reason: Platform promotion goodwill credit"
+    },
+    {
+      "id": "JRN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+      "reference": "ORD-ord_test_refund_1_1792317585025-REFUND-1",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Escrow refund to Buyer for Order #ord_test_refund_1_1792317585025 (Cancelled Task): Buyer cancellation before milestone acceptance",
+      "eventType": "ESCROW_REFUNDED_WITH_FEES",
+      "idempotencyKey": "IDEMP-REF-ord_test_refund_1_1792317585025-1",
+      "entries": [
+        {
+          "id": "ENT-f11f0740-9cff-48bf-9096-7d3973f85f89-1",
+          "journalId": "JRN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 400,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Debited escrow liability for refunded Order #ord_test_refund_1_1792317585025",
+          "orderId": "ord_test_refund_1_1792317585025"
+        },
+        {
+          "id": "ENT-f11f0740-9cff-48bf-9096-7d3973f85f89-2",
+          "journalId": "JRN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+          "accountCode": "4020",
+          "accountName": "Client Service Fee Revenue",
+          "debit": 22,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Reversed client service fee on fully refunded Order #ord_test_refund_1_1792317585025",
+          "orderId": "ord_test_refund_1_1792317585025"
+        },
+        {
+          "id": "ENT-f11f0740-9cff-48bf-9096-7d3973f85f89-3",
+          "journalId": "JRN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 422,
+          "currency": "USD",
+          "description": "Restored available wallet balance for Elena Rostova (including client fees)",
+          "userId": "user_2",
+          "orderId": "ord_test_refund_1_1792317585025"
+        }
+      ],
+      "totalDebit": 422,
+      "totalCredit": 422,
+      "status": "posted",
+      "actor": "Support Agent"
+    },
+    {
+      "id": "JRN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+      "reference": "ORD-ord_test_refund_1_1792317585025-ESCROW-LOCK",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Escrow funding for Order #ord_test_refund_1_1792317585025 (Cancelled Task)",
+      "eventType": "ORDER_ESCROW_FUNDED",
+      "idempotencyKey": "IDEMP-ORD-FUND-ord_test_refund_1_1792317585025",
+      "entries": [
+        {
+          "id": "ENT-931e0d1a-8979-4933-b13f-7f7818a8b7a6-1",
+          "journalId": "JRN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 422,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Debited buyer wallet for order price and client fees",
+          "userId": "user_2",
+          "orderId": "ord_test_refund_1_1792317585025"
+        },
+        {
+          "id": "ENT-931e0d1a-8979-4933-b13f-7f7818a8b7a6-2",
+          "journalId": "JRN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 0,
+          "credit": 400,
+          "currency": "USD",
+          "description": "Locked in escrow protection vault",
+          "orderId": "ord_test_refund_1_1792317585025"
+        },
+        {
+          "id": "ENT-931e0d1a-8979-4933-b13f-7f7818a8b7a6-3",
+          "journalId": "JRN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+          "accountCode": "4020",
+          "accountName": "Client Service Fee Revenue",
+          "debit": 0,
+          "credit": 22,
+          "currency": "USD",
+          "description": "5.5% client service fee on Order #ord_test_refund_1_1792317585025",
+          "orderId": "ord_test_refund_1_1792317585025"
+        }
+      ],
+      "totalDebit": 422,
+      "totalCredit": 422,
+      "status": "posted",
+      "actor": "Support Agent"
+    },
+    {
+      "id": "JRN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+      "reference": "ORD-ord_test_999_1792317585014-RELEASE",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Escrow release for Order #ord_test_999_1792317585014 (Cloud Infrastructure Setup)",
+      "eventType": "ESCROW_RELEASED_TO_FREELANCER",
+      "idempotencyKey": "IDEMP-REL-ord_test_999_1792317585014",
+      "entries": [
+        {
+          "id": "ENT-b2177fc5-6a59-458c-96f2-56787afdac5b-1",
+          "journalId": "JRN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 1000,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Released funds held in escrow for Order #ord_test_999_1792317585014",
+          "orderId": "ord_test_999_1792317585014"
+        },
+        {
+          "id": "ENT-b2177fc5-6a59-458c-96f2-56787afdac5b-2",
+          "journalId": "JRN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 800,
+          "currency": "USD",
+          "description": "Credited net earnings to Marcus Vance (after 20% commission)",
+          "userId": "user_3",
+          "orderId": "ord_test_999_1792317585014"
+        },
+        {
+          "id": "ENT-b2177fc5-6a59-458c-96f2-56787afdac5b-3",
+          "journalId": "JRN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+          "accountCode": "4010",
+          "accountName": "Marketplace Platform Commission Fee",
+          "debit": 0,
+          "credit": 200,
+          "currency": "USD",
+          "description": "20% platform commission on Order #ord_test_999_1792317585014",
+          "orderId": "ord_test_999_1792317585014"
+        }
+      ],
+      "totalDebit": 1000,
+      "totalCredit": 1000,
+      "status": "posted",
+      "actor": "Test Admin"
+    },
+    {
+      "id": "JRN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+      "reference": "ORD-ord_test_999_1792317585014-ESCROW-LOCK",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Escrow funding for Order #ord_test_999_1792317585014 (Cloud Infrastructure Setup)",
+      "eventType": "ORDER_ESCROW_FUNDED",
+      "idempotencyKey": "IDEMP-ORD-FUND-ord_test_999_1792317585014",
+      "entries": [
+        {
+          "id": "ENT-7f943d2f-ec55-4f39-8677-f3a87d693a2a-1",
+          "journalId": "JRN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 1055,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Debited buyer wallet for order price and client fees",
+          "userId": "user_2",
+          "orderId": "ord_test_999_1792317585014"
+        },
+        {
+          "id": "ENT-7f943d2f-ec55-4f39-8677-f3a87d693a2a-2",
+          "journalId": "JRN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 0,
+          "credit": 1000,
+          "currency": "USD",
+          "description": "Locked in escrow protection vault",
+          "orderId": "ord_test_999_1792317585014"
+        },
+        {
+          "id": "ENT-7f943d2f-ec55-4f39-8677-f3a87d693a2a-3",
+          "journalId": "JRN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+          "accountCode": "4020",
+          "accountName": "Client Service Fee Revenue",
+          "debit": 0,
+          "credit": 55,
+          "currency": "USD",
+          "description": "5.5% client service fee on Order #ord_test_999_1792317585014",
+          "orderId": "ord_test_999_1792317585014"
+        }
+      ],
+      "totalDebit": 1055,
+      "totalCredit": 1055,
+      "status": "posted",
+      "actor": "Test Admin"
+    },
+    {
+      "id": "JRN-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46",
+      "reference": "ADJ-WAL-USER_2-2bd2ac0a",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:45",
+      "description": "Administrative CREDIT_USER: Initial test deposit for buyer user_2 (goodwill)",
+      "eventType": "ADMIN_ADJUSTMENT_CREDIT",
+      "idempotencyKey": "IDEMP-ADJ-f906448b-b904-4fb1-b344-6e2a8e32f03c",
+      "entries": [
+        {
+          "id": "ENT-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46-1",
+          "journalId": "JRN-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46",
+          "accountCode": "5020",
+          "accountName": "Administrative & Goodwill Adjustments",
+          "debit": 5000,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Adjustment Expense: GOODWILL - Initial test deposit for buyer user_2"
+        },
+        {
+          "id": "ENT-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46-2",
+          "journalId": "JRN-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 5000,
+          "currency": "USD",
+          "description": "Credit Adjustment to Elena Rostova (freelancer): Initial test deposit for buyer user_2",
+          "userId": "user_2"
+        }
+      ],
+      "totalDebit": 5000,
+      "totalCredit": 5000,
+      "status": "posted",
+      "actor": "Test Admin",
+      "notes": "Category: goodwill | Reference: N/A | Reason: Initial test deposit for buyer user_2"
+    },
+    {
+      "id": "JRN-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8",
+      "reference": "REV-JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:03",
+      "description": "Reversal of Journal #JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a: Accidental duplicate goodwill grant",
+      "eventType": "REVERSAL",
+      "idempotencyKey": "IDEMP-REV-JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+      "entries": [
+        {
+          "id": "ENT-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8-1",
+          "journalId": "JRN-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8",
+          "accountCode": "5020",
+          "accountName": "Administrative & Goodwill Adjustments",
+          "debit": 0,
+          "credit": 50,
+          "currency": "USD",
+          "description": "Reversal of [Adjustment Expense: GOODWILL - Platform promotion goodwill credit]: Accidental duplicate goodwill grant"
+        },
+        {
+          "id": "ENT-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8-2",
+          "journalId": "JRN-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 50,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Reversal of [Credit Adjustment to Marcus Vance (freelancer): Platform promotion goodwill credit]: Accidental duplicate goodwill grant",
+          "userId": "user_3"
+        }
+      ],
+      "totalDebit": 50,
+      "totalCredit": 50,
+      "status": "posted",
+      "actor": "Chief Finance",
+      "notes": "Accidental duplicate goodwill grant"
+    },
+    {
+      "id": "JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+      "reference": "ADJ-WAL-USER_3-a4c559ec",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:03",
+      "description": "Administrative CREDIT_USER: Platform promotion goodwill credit (goodwill)",
+      "eventType": "ADMIN_ADJUSTMENT_CREDIT",
+      "idempotencyKey": "IDEMP-ADJ-36f0e28f-9142-4446-b3c0-d3f3c51bc80d",
+      "entries": [
+        {
+          "id": "ENT-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a-1",
+          "journalId": "JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+          "accountCode": "5020",
+          "accountName": "Administrative & Goodwill Adjustments",
+          "debit": 50,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Adjustment Expense: GOODWILL - Platform promotion goodwill credit"
+        },
+        {
+          "id": "ENT-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a-2",
+          "journalId": "JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 50,
+          "currency": "USD",
+          "description": "Credit Adjustment to Marcus Vance (freelancer): Platform promotion goodwill credit",
+          "userId": "user_3"
+        }
+      ],
+      "totalDebit": 50,
+      "totalCredit": 50,
+      "status": "posted",
+      "actor": "Super Admin",
+      "notes": "Category: goodwill | Reference: N/A | Reason: Platform promotion goodwill credit"
+    },
+    {
+      "id": "JRN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+      "reference": "ORD-ord_test_refund_1_1792317542999-REFUND-1",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:03",
+      "description": "Escrow refund to Buyer for Order #ord_test_refund_1_1792317542999 (Cancelled Task): Buyer cancellation before milestone acceptance",
+      "eventType": "ESCROW_REFUNDED_WITH_FEES",
+      "idempotencyKey": "IDEMP-REF-ord_test_refund_1_1792317542999-1",
+      "entries": [
+        {
+          "id": "ENT-ea95569f-d11e-4a6a-9458-4e3c406909d6-1",
+          "journalId": "JRN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 400,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Debited escrow liability for refunded Order #ord_test_refund_1_1792317542999",
+          "orderId": "ord_test_refund_1_1792317542999"
+        },
+        {
+          "id": "ENT-ea95569f-d11e-4a6a-9458-4e3c406909d6-2",
+          "journalId": "JRN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+          "accountCode": "4020",
+          "accountName": "Client Service Fee Revenue",
+          "debit": 22,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Reversed client service fee on fully refunded Order #ord_test_refund_1_1792317542999",
+          "orderId": "ord_test_refund_1_1792317542999"
+        },
+        {
+          "id": "ENT-ea95569f-d11e-4a6a-9458-4e3c406909d6-3",
+          "journalId": "JRN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 422,
+          "currency": "USD",
+          "description": "Restored available wallet balance for Elena Rostova (including client fees)",
+          "userId": "user_2",
+          "orderId": "ord_test_refund_1_1792317542999"
+        }
+      ],
+      "totalDebit": 422,
+      "totalCredit": 422,
+      "status": "posted",
+      "actor": "Support Agent"
+    },
+    {
+      "id": "JRN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+      "reference": "ORD-ord_test_refund_1_1792317542999-ESCROW-LOCK",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:02",
+      "description": "Escrow funding for Order #ord_test_refund_1_1792317542999 (Cancelled Task)",
+      "eventType": "ORDER_ESCROW_FUNDED",
+      "idempotencyKey": "IDEMP-ORD-FUND-ord_test_refund_1_1792317542999",
+      "entries": [
+        {
+          "id": "ENT-c56e1bb8-255f-4f5e-ac23-faf470994515-1",
+          "journalId": "JRN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 422,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Debited buyer wallet for order price and client fees",
+          "userId": "user_2",
+          "orderId": "ord_test_refund_1_1792317542999"
+        },
+        {
+          "id": "ENT-c56e1bb8-255f-4f5e-ac23-faf470994515-2",
+          "journalId": "JRN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 0,
+          "credit": 400,
+          "currency": "USD",
+          "description": "Locked in escrow protection vault",
+          "orderId": "ord_test_refund_1_1792317542999"
+        },
+        {
+          "id": "ENT-c56e1bb8-255f-4f5e-ac23-faf470994515-3",
+          "journalId": "JRN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+          "accountCode": "4020",
+          "accountName": "Client Service Fee Revenue",
+          "debit": 0,
+          "credit": 22,
+          "currency": "USD",
+          "description": "5.5% client service fee on Order #ord_test_refund_1_1792317542999",
+          "orderId": "ord_test_refund_1_1792317542999"
+        }
+      ],
+      "totalDebit": 422,
+      "totalCredit": 422,
+      "status": "posted",
+      "actor": "Support Agent"
+    },
+    {
+      "id": "JRN-16ed4b94-4990-497a-aae7-867494b5be78",
+      "reference": "ORD-ord_test_999_1792317542983-RELEASE",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:02",
+      "description": "Escrow release for Order #ord_test_999_1792317542983 (Cloud Infrastructure Setup)",
+      "eventType": "ESCROW_RELEASED_TO_FREELANCER",
+      "idempotencyKey": "IDEMP-REL-ord_test_999_1792317542983",
+      "entries": [
+        {
+          "id": "ENT-16ed4b94-4990-497a-aae7-867494b5be78-1",
+          "journalId": "JRN-16ed4b94-4990-497a-aae7-867494b5be78",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 1000,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Released funds held in escrow for Order #ord_test_999_1792317542983",
+          "orderId": "ord_test_999_1792317542983"
+        },
+        {
+          "id": "ENT-16ed4b94-4990-497a-aae7-867494b5be78-2",
+          "journalId": "JRN-16ed4b94-4990-497a-aae7-867494b5be78",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 800,
+          "currency": "USD",
+          "description": "Credited net earnings to Marcus Vance (after 20% commission)",
+          "userId": "user_3",
+          "orderId": "ord_test_999_1792317542983"
+        },
+        {
+          "id": "ENT-16ed4b94-4990-497a-aae7-867494b5be78-3",
+          "journalId": "JRN-16ed4b94-4990-497a-aae7-867494b5be78",
+          "accountCode": "4010",
+          "accountName": "Marketplace Platform Commission Fee",
+          "debit": 0,
+          "credit": 200,
+          "currency": "USD",
+          "description": "20% platform commission on Order #ord_test_999_1792317542983",
+          "orderId": "ord_test_999_1792317542983"
+        }
+      ],
+      "totalDebit": 1000,
+      "totalCredit": 1000,
+      "status": "posted",
+      "actor": "Test Admin"
+    },
+    {
+      "id": "JRN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+      "reference": "ORD-ord_test_999_1792317542983-ESCROW-LOCK",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:02",
+      "description": "Escrow funding for Order #ord_test_999_1792317542983 (Cloud Infrastructure Setup)",
+      "eventType": "ORDER_ESCROW_FUNDED",
+      "idempotencyKey": "IDEMP-ORD-FUND-ord_test_999_1792317542983",
+      "entries": [
+        {
+          "id": "ENT-7e02f510-8687-492b-ad57-f5f733f3df0b-1",
+          "journalId": "JRN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 1055,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Debited buyer wallet for order price and client fees",
+          "userId": "user_2",
+          "orderId": "ord_test_999_1792317542983"
+        },
+        {
+          "id": "ENT-7e02f510-8687-492b-ad57-f5f733f3df0b-2",
+          "journalId": "JRN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+          "accountCode": "2030",
+          "accountName": "Marketplace Escrow Funds in Trust",
+          "debit": 0,
+          "credit": 1000,
+          "currency": "USD",
+          "description": "Locked in escrow protection vault",
+          "orderId": "ord_test_999_1792317542983"
+        },
+        {
+          "id": "ENT-7e02f510-8687-492b-ad57-f5f733f3df0b-3",
+          "journalId": "JRN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+          "accountCode": "4020",
+          "accountName": "Client Service Fee Revenue",
+          "debit": 0,
+          "credit": 55,
+          "currency": "USD",
+          "description": "5.5% client service fee on Order #ord_test_999_1792317542983",
+          "orderId": "ord_test_999_1792317542983"
+        }
+      ],
+      "totalDebit": 1055,
+      "totalCredit": 1055,
+      "status": "posted",
+      "actor": "Test Admin"
+    },
+    {
+      "id": "JRN-e2ea555f-5945-4243-9ce1-e23427a87c67",
+      "reference": "ADJ-WAL-USER_2-de5d5d53",
+      "postingDate": "2026-10-18",
+      "timestamp": "2026-10-18 09:59:02",
+      "description": "Administrative CREDIT_USER: Initial test deposit for buyer user_2 (goodwill)",
+      "eventType": "ADMIN_ADJUSTMENT_CREDIT",
+      "idempotencyKey": "IDEMP-ADJ-708b336e-dfb0-4f07-8f4d-76c7b68e7c4d",
+      "entries": [
+        {
+          "id": "ENT-e2ea555f-5945-4243-9ce1-e23427a87c67-1",
+          "journalId": "JRN-e2ea555f-5945-4243-9ce1-e23427a87c67",
+          "accountCode": "5020",
+          "accountName": "Administrative & Goodwill Adjustments",
+          "debit": 5000,
+          "credit": 0,
+          "currency": "USD",
+          "description": "Adjustment Expense: GOODWILL - Initial test deposit for buyer user_2"
+        },
+        {
+          "id": "ENT-e2ea555f-5945-4243-9ce1-e23427a87c67-2",
+          "journalId": "JRN-e2ea555f-5945-4243-9ce1-e23427a87c67",
+          "accountCode": "2020",
+          "accountName": "Freelancer Wallets Payable",
+          "debit": 0,
+          "credit": 5000,
+          "currency": "USD",
+          "description": "Credit Adjustment to Elena Rostova (freelancer): Initial test deposit for buyer user_2",
+          "userId": "user_2"
+        }
+      ],
+      "totalDebit": 5000,
+      "totalCredit": 5000,
+      "status": "posted",
+      "actor": "Test Admin",
+      "notes": "Category: goodwill | Reference: N/A | Reason: Initial test deposit for buyer user_2"
+    },
+    {
       "id": "JRN-c361072f-5d00-429c-8468-8dd554304366",
       "reference": "REV-JRN-b0f65713-fc14-45f0-a280-bb42e2e6a362",
       "postingDate": "2026-10-18",
@@ -7638,6 +8252,196 @@
   ],
   "transactions": [
     {
+      "id": "TXN-f6da18a9-6d16-429f-81f4-41198d007e35",
+      "type": "adjustment_debit",
+      "amount": 50,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_3",
+      "userName": "Marcus Vance",
+      "userRole": "freelancer",
+      "journalId": "JRN-f6da18a9-6d16-429f-81f4-41198d007e35",
+      "description": "Reversal of Journal #JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b: Accidental duplicate goodwill grant"
+    },
+    {
+      "id": "TXN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+      "type": "adjustment_credit",
+      "amount": 50,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_3",
+      "userName": "Marcus Vance",
+      "userRole": "freelancer",
+      "journalId": "JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+      "description": "Administrative CREDIT_USER: Platform promotion goodwill credit (goodwill)"
+    },
+    {
+      "id": "TXN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+      "type": "refund",
+      "amount": 422,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_refund_1_1792317585025",
+      "journalId": "JRN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+      "description": "Escrow refund to Buyer for Order #ord_test_refund_1_1792317585025 (Cancelled Task): Buyer cancellation before milestone acceptance"
+    },
+    {
+      "id": "TXN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+      "type": "escrow_fund",
+      "amount": 422,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_refund_1_1792317585025",
+      "journalId": "JRN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+      "description": "Escrow funding for Order #ord_test_refund_1_1792317585025 (Cancelled Task)"
+    },
+    {
+      "id": "TXN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+      "type": "escrow_release",
+      "amount": 1000,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_3",
+      "userName": "Marcus Vance",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_999_1792317585014",
+      "journalId": "JRN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+      "description": "Escrow release for Order #ord_test_999_1792317585014 (Cloud Infrastructure Setup)"
+    },
+    {
+      "id": "TXN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+      "type": "escrow_fund",
+      "amount": 1055,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_999_1792317585014",
+      "journalId": "JRN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+      "description": "Escrow funding for Order #ord_test_999_1792317585014 (Cloud Infrastructure Setup)"
+    },
+    {
+      "id": "TXN-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46",
+      "type": "adjustment_credit",
+      "amount": 5000,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:45",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "journalId": "JRN-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46",
+      "description": "Administrative CREDIT_USER: Initial test deposit for buyer user_2 (goodwill)"
+    },
+    {
+      "id": "TXN-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8",
+      "type": "adjustment_debit",
+      "amount": 50,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:03",
+      "status": "completed",
+      "userId": "user_3",
+      "userName": "Marcus Vance",
+      "userRole": "freelancer",
+      "journalId": "JRN-dfd8d943-9c9c-4ae2-bc89-7f66e6a0baf8",
+      "description": "Reversal of Journal #JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a: Accidental duplicate goodwill grant"
+    },
+    {
+      "id": "TXN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+      "type": "adjustment_credit",
+      "amount": 50,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:03",
+      "status": "completed",
+      "userId": "user_3",
+      "userName": "Marcus Vance",
+      "userRole": "freelancer",
+      "journalId": "JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+      "description": "Administrative CREDIT_USER: Platform promotion goodwill credit (goodwill)"
+    },
+    {
+      "id": "TXN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+      "type": "refund",
+      "amount": 422,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:03",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_refund_1_1792317542999",
+      "journalId": "JRN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+      "description": "Escrow refund to Buyer for Order #ord_test_refund_1_1792317542999 (Cancelled Task): Buyer cancellation before milestone acceptance"
+    },
+    {
+      "id": "TXN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+      "type": "escrow_fund",
+      "amount": 422,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:02",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_refund_1_1792317542999",
+      "journalId": "JRN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+      "description": "Escrow funding for Order #ord_test_refund_1_1792317542999 (Cancelled Task)"
+    },
+    {
+      "id": "TXN-16ed4b94-4990-497a-aae7-867494b5be78",
+      "type": "escrow_release",
+      "amount": 1000,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:02",
+      "status": "completed",
+      "userId": "user_3",
+      "userName": "Marcus Vance",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_999_1792317542983",
+      "journalId": "JRN-16ed4b94-4990-497a-aae7-867494b5be78",
+      "description": "Escrow release for Order #ord_test_999_1792317542983 (Cloud Infrastructure Setup)"
+    },
+    {
+      "id": "TXN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+      "type": "escrow_fund",
+      "amount": 1055,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:02",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "relatedOrderId": "ord_test_999_1792317542983",
+      "journalId": "JRN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+      "description": "Escrow funding for Order #ord_test_999_1792317542983 (Cloud Infrastructure Setup)"
+    },
+    {
+      "id": "TXN-e2ea555f-5945-4243-9ce1-e23427a87c67",
+      "type": "adjustment_credit",
+      "amount": 5000,
+      "currency": "USD",
+      "timestamp": "2026-10-18 09:59:02",
+      "status": "completed",
+      "userId": "user_2",
+      "userName": "Elena Rostova",
+      "userRole": "freelancer",
+      "journalId": "JRN-e2ea555f-5945-4243-9ce1-e23427a87c67",
+      "description": "Administrative CREDIT_USER: Initial test deposit for buyer user_2 (goodwill)"
+    },
+    {
       "id": "TXN-c361072f-5d00-429c-8468-8dd554304366",
       "type": "adjustment_debit",
       "amount": 50,
@@ -9989,12 +10793,12 @@
         "userEmail": "elena@design.io",
         "userRole": "freelancer",
         "currency": "USD",
-        "availableBalance": 28920,
+        "availableBalance": 36810,
         "pendingIncoming": 0,
         "fundsOnHold": 0,
         "pendingWithdrawals": 0,
         "status": "active",
-        "lastActivityAt": "2026-10-18 08:57:47",
+        "lastActivityAt": "2026-10-18 09:59:45",
         "createdAt": "2026-10-15 09:18:32"
       }
     ],
@@ -10007,12 +10811,12 @@
         "userEmail": "marcus@vance.io",
         "userRole": "freelancer",
         "currency": "USD",
-        "availableBalance": 4800,
+        "availableBalance": 6400,
         "pendingIncoming": 0,
         "fundsOnHold": 0,
         "pendingWithdrawals": 0,
         "status": "active",
-        "lastActivityAt": "2026-10-18 08:57:47",
+        "lastActivityAt": "2026-10-18 09:59:45",
         "createdAt": "2026-10-15 09:18:32"
       }
     ],
@@ -10324,6 +11128,126 @@
     ]
   ],
   "auditLogs": [
+    {
+      "id": "FAUD-93967865-149",
+      "actor": "Super Admin",
+      "role": "super_admin",
+      "action": "ADMIN_ADJUSTMENT_CREDIT_USER",
+      "target": "Wallet #WAL-USER_3 (Marcus Vance)",
+      "reason": "Platform promotion goodwill credit [goodwill] Amount: $50.00",
+      "journalId": "JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b",
+      "timestamp": "2026-10-18 09:59:45"
+    },
+    {
+      "id": "FAUD-7ae90cfe-7a9",
+      "actor": "Support Agent",
+      "role": "super_admin",
+      "action": "ESCROW_REFUNDED",
+      "target": "Order #ord_test_refund_1_1792317585025",
+      "reason": "Buyer cancellation before milestone acceptance",
+      "journalId": "JRN-f11f0740-9cff-48bf-9096-7d3973f85f89",
+      "timestamp": "2026-10-18 09:59:45"
+    },
+    {
+      "id": "FAUD-93639e80-265",
+      "actor": "Support Agent",
+      "role": "system",
+      "action": "ESCROW_FUNDS_LOCKED",
+      "target": "Order #ord_test_refund_1_1792317585025",
+      "reason": "Locked $400.00 in escrow; client charged $422.00 total (service fee $22.00, small-order fee $0.00)",
+      "journalId": "JRN-931e0d1a-8979-4933-b13f-7f7818a8b7a6",
+      "timestamp": "2026-10-18 09:59:45"
+    },
+    {
+      "id": "FAUD-e27d2829-14f",
+      "actor": "Test Admin",
+      "role": "super_admin",
+      "action": "ESCROW_RELEASED",
+      "target": "Order #ord_test_999_1792317585014",
+      "reason": "Released $800.00 net to freelancer, $200.00 platform commission",
+      "journalId": "JRN-b2177fc5-6a59-458c-96f2-56787afdac5b",
+      "timestamp": "2026-10-18 09:59:45"
+    },
+    {
+      "id": "FAUD-4d5cb789-be9",
+      "actor": "Test Admin",
+      "role": "system",
+      "action": "ESCROW_FUNDS_LOCKED",
+      "target": "Order #ord_test_999_1792317585014",
+      "reason": "Locked $1000.00 in escrow; client charged $1055.00 total (service fee $55.00, small-order fee $0.00)",
+      "journalId": "JRN-7f943d2f-ec55-4f39-8677-f3a87d693a2a",
+      "timestamp": "2026-10-18 09:59:45"
+    },
+    {
+      "id": "FAUD-10f64a3b-13c",
+      "actor": "Test Admin",
+      "role": "super_admin",
+      "action": "ADMIN_ADJUSTMENT_CREDIT_USER",
+      "target": "Wallet #WAL-USER_2 (Elena Rostova)",
+      "reason": "Initial test deposit for buyer user_2 [goodwill] Amount: $5000.00",
+      "journalId": "JRN-4b7a0bf8-e3ac-4c06-a73f-91a6829dcf46",
+      "timestamp": "2026-10-18 09:59:45"
+    },
+    {
+      "id": "FAUD-4c28ea09-e40",
+      "actor": "Super Admin",
+      "role": "super_admin",
+      "action": "ADMIN_ADJUSTMENT_CREDIT_USER",
+      "target": "Wallet #WAL-USER_3 (Marcus Vance)",
+      "reason": "Platform promotion goodwill credit [goodwill] Amount: $50.00",
+      "journalId": "JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+      "timestamp": "2026-10-18 09:59:03"
+    },
+    {
+      "id": "FAUD-364af8c9-04b",
+      "actor": "Support Agent",
+      "role": "super_admin",
+      "action": "ESCROW_REFUNDED",
+      "target": "Order #ord_test_refund_1_1792317542999",
+      "reason": "Buyer cancellation before milestone acceptance",
+      "journalId": "JRN-ea95569f-d11e-4a6a-9458-4e3c406909d6",
+      "timestamp": "2026-10-18 09:59:03"
+    },
+    {
+      "id": "FAUD-3a6e2006-862",
+      "actor": "Support Agent",
+      "role": "system",
+      "action": "ESCROW_FUNDS_LOCKED",
+      "target": "Order #ord_test_refund_1_1792317542999",
+      "reason": "Locked $400.00 in escrow; client charged $422.00 total (service fee $22.00, small-order fee $0.00)",
+      "journalId": "JRN-c56e1bb8-255f-4f5e-ac23-faf470994515",
+      "timestamp": "2026-10-18 09:59:03"
+    },
+    {
+      "id": "FAUD-1878a0b0-2b8",
+      "actor": "Test Admin",
+      "role": "super_admin",
+      "action": "ESCROW_RELEASED",
+      "target": "Order #ord_test_999_1792317542983",
+      "reason": "Released $800.00 net to freelancer, $200.00 platform commission",
+      "journalId": "JRN-16ed4b94-4990-497a-aae7-867494b5be78",
+      "timestamp": "2026-10-18 09:59:02"
+    },
+    {
+      "id": "FAUD-07e810e2-a58",
+      "actor": "Test Admin",
+      "role": "system",
+      "action": "ESCROW_FUNDS_LOCKED",
+      "target": "Order #ord_test_999_1792317542983",
+      "reason": "Locked $1000.00 in escrow; client charged $1055.00 total (service fee $55.00, small-order fee $0.00)",
+      "journalId": "JRN-7e02f510-8687-492b-ad57-f5f733f3df0b",
+      "timestamp": "2026-10-18 09:59:02"
+    },
+    {
+      "id": "FAUD-dccf0831-3b2",
+      "actor": "Test Admin",
+      "role": "super_admin",
+      "action": "ADMIN_ADJUSTMENT_CREDIT_USER",
+      "target": "Wallet #WAL-USER_2 (Elena Rostova)",
+      "reason": "Initial test deposit for buyer user_2 [goodwill] Amount: $5000.00",
+      "journalId": "JRN-e2ea555f-5945-4243-9ce1-e23427a87c67",
+      "timestamp": "2026-10-18 09:59:02"
+    },
     {
       "id": "FAUD-48a0fed4-407",
       "actor": "Super Admin",
@@ -11762,7 +12686,21 @@
     "IDEMP-ORD-FUND-ord_test_refund_1_1792313867872",
     "IDEMP-REF-ord_test_refund_1_1792313867872-1",
     "IDEMP-ADJ-eca1c985-0ec7-4110-8799-3f69e516089a",
-    "IDEMP-REV-JRN-b0f65713-fc14-45f0-a280-bb42e2e6a362"
+    "IDEMP-REV-JRN-b0f65713-fc14-45f0-a280-bb42e2e6a362",
+    "IDEMP-ADJ-708b336e-dfb0-4f07-8f4d-76c7b68e7c4d",
+    "IDEMP-ORD-FUND-ord_test_999_1792317542983",
+    "IDEMP-REL-ord_test_999_1792317542983",
+    "IDEMP-ORD-FUND-ord_test_refund_1_1792317542999",
+    "IDEMP-REF-ord_test_refund_1_1792317542999-1",
+    "IDEMP-ADJ-36f0e28f-9142-4446-b3c0-d3f3c51bc80d",
+    "IDEMP-REV-JRN-a73dfdf1-3237-4ac0-ac40-a3aeafc2826a",
+    "IDEMP-ADJ-f906448b-b904-4fb1-b344-6e2a8e32f03c",
+    "IDEMP-ORD-FUND-ord_test_999_1792317585014",
+    "IDEMP-REL-ord_test_999_1792317585014",
+    "IDEMP-ORD-FUND-ord_test_refund_1_1792317585025",
+    "IDEMP-REF-ord_test_refund_1_1792317585025-1",
+    "IDEMP-ADJ-ba1cf865-2643-4a21-b30b-e80904117235",
+    "IDEMP-REV-JRN-73bd4ddf-087b-45d0-ad5a-13f504dab87b"
   ],
   "escrows": [
     [
@@ -13159,6 +14097,86 @@
         "refundSeq": 1,
         "status": "refunded",
         "fundedAt": "2026-10-18 08:57:47",
+        "commissionPercent": 20,
+        "serviceFee": 22,
+        "smallOrderFee": 0,
+        "feesRefunded": true
+      }
+    ],
+    [
+      "ord_test_999_1792317542983",
+      {
+        "orderId": "ord_test_999_1792317542983",
+        "orderTitle": "Cloud Infrastructure Setup",
+        "buyerId": "user_2",
+        "sellerId": "user_3",
+        "amount": 1000,
+        "remaining": 0,
+        "refundedTotal": 0,
+        "releasedGross": 1000,
+        "refundSeq": 0,
+        "status": "released",
+        "fundedAt": "2026-10-18 09:59:02",
+        "commissionPercent": 20,
+        "serviceFee": 55,
+        "smallOrderFee": 0,
+        "feesRefunded": false
+      }
+    ],
+    [
+      "ord_test_refund_1_1792317542999",
+      {
+        "orderId": "ord_test_refund_1_1792317542999",
+        "orderTitle": "Cancelled Task",
+        "buyerId": "user_2",
+        "sellerId": "user_3",
+        "amount": 400,
+        "remaining": 0,
+        "refundedTotal": 400,
+        "releasedGross": 0,
+        "refundSeq": 1,
+        "status": "refunded",
+        "fundedAt": "2026-10-18 09:59:03",
+        "commissionPercent": 20,
+        "serviceFee": 22,
+        "smallOrderFee": 0,
+        "feesRefunded": true
+      }
+    ],
+    [
+      "ord_test_999_1792317585014",
+      {
+        "orderId": "ord_test_999_1792317585014",
+        "orderTitle": "Cloud Infrastructure Setup",
+        "buyerId": "user_2",
+        "sellerId": "user_3",
+        "amount": 1000,
+        "remaining": 0,
+        "refundedTotal": 0,
+        "releasedGross": 1000,
+        "refundSeq": 0,
+        "status": "released",
+        "fundedAt": "2026-10-18 09:59:45",
+        "commissionPercent": 20,
+        "serviceFee": 55,
+        "smallOrderFee": 0,
+        "feesRefunded": false
+      }
+    ],
+    [
+      "ord_test_refund_1_1792317585025",
+      {
+        "orderId": "ord_test_refund_1_1792317585025",
+        "orderTitle": "Cancelled Task",
+        "buyerId": "user_2",
+        "sellerId": "user_3",
+        "amount": 400,
+        "remaining": 0,
+        "refundedTotal": 400,
+        "releasedGross": 0,
+        "refundSeq": 1,
+        "status": "refunded",
+        "fundedAt": "2026-10-18 09:59:45",
         "commissionPercent": 20,
         "serviceFee": 22,
         "smallOrderFee": 0,
